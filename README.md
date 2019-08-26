@@ -1,1 +1,2 @@
 # wzorzec
+# wzorzec
