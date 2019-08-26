@@ -73,7 +73,12 @@
   command: "chroot {{ montowanie }} update-grub2"
 
 
-- debug:
-    msg: "Instalacja zostala zakonczona. Zrestaruj komputer."
-  
+- pause:
+    prompt: " Instalacja zostala zakonczona. Czy zrestartowac serwer? (t/n)?"
+  register: my_pause
+
+
+- name: Restar serwera
+  command: reboot
+  when: my_pause == "t"
 
