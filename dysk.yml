@@ -34,7 +34,7 @@
     unit: GB
   register: part_1
 
-- name: Formatowanie partycji /dev/{{ partycja_glowna }}
+- name: Formatowanie partycji /dev/{{ dysk }}{{ partycja_glowna }}
   filesystem:
     fstype: "{{ fs }}"
     dev: "/dev/{{ dysk }}{{ partycja_glowna }}"

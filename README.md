@@ -1,7 +1,19 @@
-## Instalacja systemu UBUNTU 18.04 z wzorca NETIS
+## Spis
+* [Informacje](#Informacje)
+* [Wymagania](#Wymagania)
+* [Instalacja playbooka](#Instalacja)
 
- apt-add-repository multiverse
- 
- apt install git ansible
- 
+
+## Informacje
+Playbook do instalacji systemu Ubuntu 18.04 z wzorca przygootwanego przez NETIS
+Playbook usunie wszytskie prarycje z pierwszego dysku oraz utworzy jedną z systemem plików ext4 
+
+## Wymagania
+Komuter musi być właczony z systemu LIVE Ubuntu 18 x64
+Do uruchomienie playbooka wymagazne są pakiery git oraz ansible
+ sudo apt-add-repository multiverse
+ sudo apt-get install git ansible --yes --force-yes
+
+## Instalacja
+Uruchomienie playbooka:
  ansible-pull -U https://github.com/netispl/wzorzec -i hosts
