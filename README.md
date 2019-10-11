@@ -1,6 +1,6 @@
 
 ## Informacje
-Playbook do instalacji systemu Ubuntu 18.04 z wzorca przygootwanego przez NETIS
+Playbook do instalacji systemu Ubuntu 18.04 z wzorca przygotowanego przez NETIS
 Playbook usunie wszytskie partycje z pierwszego dysku oraz utworzy jedną z systemem plików ext4 
 
 ## Wymagania
