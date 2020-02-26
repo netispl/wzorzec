@@ -15,5 +15,5 @@ Do uruchomienie playbooka wymagane są pakiery git oraz ansible
 ## Instalacja
 Uruchomienie playbooka:
 ```
- ansible-pull -U https://github.com/netispl/wzorzec -i hosts
+ sudo ansible-pull -U https://github.com/netispl/wzorzec -i hosts
 ```
