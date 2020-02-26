@@ -2,15 +2,19 @@
   
 - name: Tworzenie katalogu montowania
   file:
-    path: "{{ montowanie }}"
+    path: "{{ item }}"
     state: directory
     mode: 0755
+  with_items:
+    - "{{ montowanie }}"
+    - "{{ montowanie_efi }}"
+
 
 
 - name: Montowanie dysku
   mount:
     path: "{{ montowanie }}"
-    src: "/dev/{{ dysk }}{{ partycja_glowna }}"
+    src: "/dev/{{ dysk }}{{ partycja_glowna_efi }}"
     fstype: "{{ fs }}"
     fstab: /tmp/fstab.tmp
     state: mounted
@@ -55,7 +59,7 @@
 
 - name: Dodanie do fstab
   mount:
-    src: "/dev/{{ dysk }}{{ partycja_glowna }}"
+    src: "/dev/{{ dysk }}{{ partycja_glowna_efi }}"
     path: /
     state: present
     fstab: "{{ montowanie }}/etc/fstab"
@@ -63,7 +67,32 @@
     opts: errors=remount-ro
     passno: '1'
     
-    
+- name: Dodanie do fstab EFI
+  mount:
+    src: "/dev/{{ dysk }}{{ partycja_efi }}"
+    path: /boot/efi
+    state: present
+    fstab: "{{ montowanie }}/etc/fstab"
+    fstype: vfat
+    opts: 'umask=0077'
+    passno: '1'
+
+- name: Montowanie EFI
+  mount:
+    path: "{{ montowanie_efi }}"
+    src: "/dev/{{ dysk }}{{ partycja_efi }}"
+    fstype: vfat
+    fstab: /tmp/fstab.tmp
+    state: mounted
+
+- name: Dodanie DNS
+  lineinfile:
+    path: "{{ montowanie }}/etc/resolv.conf"
+    line: nameserver 8.8.8.8 
+
+- name: Instalacja pakietow
+  command: "chroot {{ montowanie }} apt install --yes --force-yes grub-efi"
+
 - name: Instalacja GRUB-a
   command: "chroot {{ montowanie }} grub-install /dev/{{ dysk }}"
   
