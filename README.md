@@ -2,7 +2,7 @@
 ## Informacje
 Playbook do instalacji systemu Ubuntu 18.04 z wzorca przygotowanego przez NETIS
 Playbook usunie wszytskie partycje z dysku oraz utworzy nowe.
-Istanieje możlieowść wybory dysku do instalacji (jeżeli jest więcej niż jeden dysk) oraz sposobu instalacji (z UEFI lub bez).
+Istnieje możliwość wyboru dysku do instalacji (jeżeli jest więcej niż jeden dysk) oraz sposobu instalacji (z UEFI lub bez).
 
 ## Wymagania
 Komputer musi być właczony z systemu LIVE **Ubuntu 18 64 bit**
