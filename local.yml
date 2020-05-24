@@ -64,17 +64,17 @@
   #    when: not ( dysk | regex_search('nvm')) 
   
     
-    - set_fact:
-        efi: "tak"
-      when: (dysk | regex_search('nvm')) or (uefi.user_input == "t")
+ #   - set_fact:
+ #       efi: "tak"
+ #     when: (dysk | regex_search('nvm')) or (uefi.user_input == "t")
 
-    - set_fact:
-        partycja_efi: p1
-      when: dysk | regex_search('nvm')
+ #   - set_fact:
+ #       partycja_efi: p1
+ #     when: dysk | regex_search('nvm')
     
-    - set_fact:
-        partycja_glowna_efi: p2
-      when: dysk | regex_search('nvm')
+ #   - set_fact:
+ #       partycja_glowna_efi: p2
+ #     when: dysk | regex_search('nvm')
 
     
     - name: Partycje EFI
