@@ -22,7 +22,7 @@
     - name: Wykrywanie dyskow
       set_fact:
         dyski: "{{ dyski | default([]) + [ item.key ] }}"
-      #no_log: True
+      no_log: True
       with_dict: "{{ hostvars[inventory_hostname].ansible_devices }}"
       when: item.value.sectors != "0" and item.value.removable == "0" and item.value.host != ""
     
@@ -57,24 +57,24 @@
         msg: "PODANY DYSK JEST NIEPRAWIDLOWY"
       when: OK | default('0') != 1
    
-  #  - pause:
-  #      prompt: "CZY INSTALOWAĆ UEFI ? t/n"
-  #      echo: yes
-  #    register: uefi
-  #    when: not ( dysk | regex_search('nvm')) 
+    - pause:
+        prompt: "CZY INSTALOWAĆ UEFI ? t/n"
+        echo: yes
+      register: uefi
+      when: not ( dysk | regex_search('nvm')) 
   
     
- #   - set_fact:
- #       efi: "tak"
- #     when: (dysk | regex_search('nvm')) or (uefi.user_input == "t")
+    - set_fact:
+        efi: "tak"
+      when: (dysk | regex_search('nvm')) or (uefi.user_input == "t")
 
- #   - set_fact:
- #       partycja_efi: p1
- #     when: dysk | regex_search('nvm')
+    - set_fact:
+        partycja_efi: p1
+      when: dysk | regex_search('nvm')
     
- #   - set_fact:
- #       partycja_glowna_efi: p2
- #     when: dysk | regex_search('nvm')
+    - set_fact:
+        partycja_glowna_efi: p2
+      when: dysk | regex_search('nvm')
 
     
     - name: Partycje EFI
