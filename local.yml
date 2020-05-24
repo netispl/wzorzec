@@ -57,11 +57,11 @@
         msg: "PODANY DYSK JEST NIEPRAWIDLOWY"
       when: OK | default('0') != 1
    
-    - pause:
-        prompt: "CZY INSTALOWAĆ UEFI ? t/n"
-        echo: yes
-      register: uefi
-      when: not ( dysk | regex_search('nvm')) 
+  #  - pause:
+  #      prompt: "CZY INSTALOWAĆ UEFI ? t/n"
+  #      echo: yes
+  #    register: uefi
+  #    when: not ( dysk | regex_search('nvm')) 
   
     
     - set_fact:
