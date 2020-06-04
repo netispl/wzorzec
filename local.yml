@@ -11,6 +11,7 @@
     partycja_efi: 1
     partycja_glowna_efi: 2
     efi: nie
+    ansible_python_interpreter: /usr/bin/python2
 
 
   tasks:
