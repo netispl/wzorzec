@@ -29,14 +29,14 @@
     - name: WYKRYTE DYSKI
       debug:
         msg: "{{ dyski | list }}"
-      when: dyski | length > 1
+        #  when: dyski | length > 1
     
     - name: dyski
       pause:
         prompt: "PODAJ DYSK DO INSTALACJI SYSTEMU: {{ dyski | list }}"
         echo: yes
       register: result
-      when: dyski | length > 1
+      #      when: dyski | length > 1
 
 
     - set_fact:
