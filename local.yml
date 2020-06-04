@@ -30,10 +30,13 @@
       debug:
         msg: "{{ dyski | list }}"
       when: dyski | length > 1
+    
+    - pause:
+        seconds: 1  
 
     - pause:
         prompt: "PODAJ DYSK DO INSTALACJI SYSTEMU: {{ dyski | list }}"
-        seconds: 15
+        echo: yes
       register: result
       when: dyski | length > 1
 
