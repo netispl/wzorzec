@@ -19,24 +19,23 @@
       fail: msg="SYSTEM LIVE MUSI BYC 64-bitowy"
       when: ansible_architecture != "x86_64"
 
-#    - name: Wykrywanie dyskow
-#      set_fact:
-#        dyski: "{{ dyski | default([]) + [ item.key ] }}"
-#      no_log: True
-#      with_dict: "{{ hostvars[inventory_hostname].ansible_devices }}"
-#      when: item.value.sectors != "0" and item.value.removable == "0" and item.value.host != ""
+    - name: Wykrywanie dyskow
+      set_fact:
+        dyski: "{{ dyski | default([]) + [ item.key ] }}"
+      no_log: True
+      with_dict: "{{ hostvars[inventory_hostname].ansible_devices }}"
+      when: item.value.sectors != "0" and item.value.removable == "0" and item.value.host != ""
    
-#    - name: WYKRYTE DYSKI
-#      debug:
-#        msg: "{{ dyski | list }}"
-        #  when: dyski | length > 1
+    - name: WYKRYTE DYSKI
+      debug:
+        msg: "{{ dyski | list }}"
+      when: dyski | length > 1
     
-    - name: dyski
-      pause:
-        prompt: "PODAJ DYSK DO INSTALACJI SYSTEMU: "
+    - pause:
+        prompt: "PODAJ DYSK DO INSTALACJI SYSTEMU: {{ dyski | list }}"
         echo: yes
       register: result
-      #      when: dyski | length > 1
+      when: dyski | length > 1
 
 
     - set_fact:
