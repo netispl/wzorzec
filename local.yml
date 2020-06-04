@@ -33,8 +33,7 @@
 
     - pause:
         prompt: "PODAJ DYSK DO INSTALACJI SYSTEMU: {{ dyski | list }}"
-        private: no
-        echo: yes
+        seconds: 15
       register: result
       when: dyski | length > 1
 
