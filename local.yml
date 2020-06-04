@@ -31,10 +31,8 @@
         msg: "{{ dyski | list }}"
       when: dyski | length > 1
     
-    - pause:
-        seconds: 1  
-
-    - pause:
+    - name: dyski
+      pause:
         prompt: "PODAJ DYSK DO INSTALACJI SYSTEMU: {{ dyski | list }}"
         echo: yes
       register: result
