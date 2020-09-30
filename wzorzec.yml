@@ -16,7 +16,7 @@
     state: mounted
     
 - set_fact:
-    wzorzec_u: "xubuntu_wzor_czysty_{{ ubuntu_wer }}.04.tar.gz"
+    wzorzec_u: "xubuntu_wzor_czysty_{{ ubuntu_wer.user_input }}.04.tar.gz"
 
 - name: Pobranie wzorca - Przy lączu 100 Mb/s trwa to około 15 minut
   get_url:
