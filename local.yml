@@ -13,7 +13,6 @@
     partycja_glowna_efi: 2
     efi: nie
 
-
   tasks:
   
     - name: Sprawdzanie systemu
