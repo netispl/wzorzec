@@ -15,10 +15,12 @@
     fstab: /tmp/fstab.tmp
     state: mounted
     
-  
+- set_fact:
+    wzorzec_u: "xubuntu_wzor_czysty_{{ ubuntu_wer }}.04.tar.gz"
+
 - name: Pobranie wzorca - Przy lączu 100 Mb/s trwa to około 15 minut
   get_url:
-    url: "http://91.239.155.79/{{ wzorzec }}"
+    url: "http://91.239.155.79/{{ wzorzec_u }}"
     dest: "{{ montowanie }}/"
     tmp_dest: "{{ montowanie }}/"
     force: yes
@@ -27,7 +29,7 @@
 
 - name: Instalowanie
   unarchive:
-    src: "{{ montowanie }}/{{ wzorzec }}"
+    src: "{{ montowanie }}/{{ wzorzec_u }}"
     dest: "{{ montowanie }}/"
     remote_src: yes
 
