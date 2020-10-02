@@ -10,7 +10,6 @@
     - "{{ montowanie_efi }}"
 
 
-
 - name: Montowanie dysku
   mount:
     path: "{{ montowanie }}"

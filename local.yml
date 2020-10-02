@@ -6,8 +6,6 @@
     montowanie: '/mnt/dysk'
     montowanie_efi: "{{ montowanie }}/boot/efi"
     fs: 'ext4'
-    wzorzec: 'xubuntu_wzor_czysty_18.04.tar.gz'
-    wzorze20: 'xubuntu_wzor_czysty_20.04.tar.gz'
     partycja_glowna: 1
     partycja_efi: 1
     partycja_glowna_efi: 2
@@ -23,6 +21,9 @@
         prompt: "PODAJ WERSJE UBUNTU DO INSTALACJI: 18/20"
         echo: yes
       register: ubuntu_wer
+
+    - set_fact:
+        wzorzec: "xubuntu_wzor_czysty_{{ ubuntu_wer.user_input }}.04.tar.gz"     
 
     - name: Wykrywanie dyskow
       set_fact:
