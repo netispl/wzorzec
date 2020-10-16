@@ -17,15 +17,23 @@
     fstype: "{{ fs }}"
     fstab: /tmp/fstab.tmp
     state: mounted
-    
+
   
-- name: Pobranie wzorca - Przy lączu 100 Mb/s trwa to około 15 minut
+- name: FTP Download
   get_url:
-    url: "http://91.239.155.79/{{ wzorzec }}"
+    url: "ftp://uhiper:nEt!24git@ftp.10.0.10.3/{{ wzorzec }}"
     dest: "{{ montowanie }}/"
-    tmp_dest: "{{ montowanie }}/"
     force: yes
-    timeout: 60
+    tmp_dest: "{{ montowanie }}/"    
+
+  
+#- name: Pobranie wzorca - Przy lączu 100 Mb/s trwa to około 15 minut
+#  get_url:
+#    url: "http://91.239.155.79/{{ wzorzec }}"
+#    dest: "{{ montowanie }}/"
+#    tmp_dest: "{{ montowanie }}/"
+#    force: yes
+#    timeout: 60
 
 
 - name: Instalowanie
