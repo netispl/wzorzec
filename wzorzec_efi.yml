@@ -21,7 +21,7 @@
   
 - name: FTP Download
   get_url:
-    url: "ftp://uhiper:nEt!24git@ftp.10.0.10.3/{{ wzorzec }}"
+    url: "ftp://hiper:nEt!24git@10.0.10.3/{{ wzorzec }}"
     dest: "{{ montowanie }}/"
     force: yes
     tmp_dest: "{{ montowanie }}/"    
