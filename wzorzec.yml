@@ -16,14 +16,6 @@
     state: mounted
     
 
-#- name: FTP Download
-#  get_url:
-#    url: "ftp://hiper:nEt!24git@91.239.155.79/{{ wzorzec }}"
-#    dest: "{{ montowanie }}/"
-#    force: yes
-#    tmp_dest: "{{ montowanie }}/"
-
-
 - name: Pobranie wzorca - Przy lączu 100 Mb/s trwa to około 15 minut
   get_url:
     url: "http://91.239.155.79/{{ wzorzec }}"
