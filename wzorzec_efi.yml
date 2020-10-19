@@ -86,7 +86,7 @@
 
 - name: Usuniecie splash
   replace:
-    path: /etc/default/grub
+    path: "{{ montowanie }}/etc/default/grub"
     regexp: '(GRUB_CMDLINE_LINUX_DEFAULT).*'
     replace: '\1="quiet"'
   when: ubuntu_wer.user_input == "20"
