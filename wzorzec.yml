@@ -63,7 +63,13 @@
     opts: errors=remount-ro
     passno: '1'
     
-    
+- name: Modyfikacja do Lenovo ThinkCentre
+  replace:
+    path: "{{ montowanie }}/etc/default/grub"
+    regexp: '(GRUB_CMDLINE_LINUX_DEFAULT).*'
+    replace: '\1="quiet splash snd_hda_intel.dmic_detect=0"'
+  when: ansible_product_version is search ("ThinkCentre") and ubuntu_wer.user_input == "20"
+
 - name: Instalacja GRUB-a
   command: "chroot {{ montowanie }} grub-install /dev/{{ dysk }}"
   

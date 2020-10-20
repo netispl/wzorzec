@@ -84,12 +84,12 @@
     fstab: /tmp/fstab.tmp
     state: mounted
 
-- name: Usuniecie splash
+- name: Modyfikacja do Lenovo ThinkCentre
   replace:
     path: "{{ montowanie }}/etc/default/grub"
     regexp: '(GRUB_CMDLINE_LINUX_DEFAULT).*'
-    replace: '\1="quiet"'
-  when: ubuntu_wer.user_input == "20"
+    replace: '\1="quiet splash snd_hda_intel.dmic_detect=0"'
+  when: ansible_product_version is search ("ThinkCentre") and ubuntu_wer.user_input == "20"
 
 - name: Dodanie DNS
   lineinfile:
