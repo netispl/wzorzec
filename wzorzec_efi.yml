@@ -97,7 +97,10 @@
     line: nameserver 8.8.8.8 
 
 - name: Instalacja pakietow
-  command: "chroot {{ montowanie }} apt update && apt install --yes --force-yes grub-efi"
+  coomend: chroot "{{ montowanie }}" apt update
+
+- name: Instalacja pakietow
+  command: chroot "{{ montowanie }}" apt install --yes grub-efi
 
 - name: Instalacja GRUB-a
   command: "chroot {{ montowanie }} grub-install /dev/{{ dysk }}"
