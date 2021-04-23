@@ -1,31 +1,31 @@
 ---
   
-- name: Tworzenie katalogu montowania
-  file:
-    path: "{{ item }}"
-    state: directory
-    mode: 0755
-  with_items:
-    - "{{ montowanie }}"
-    - "{{ montowanie_efi }}"
+#- name: Tworzenie katalogu montowania
+#  file:
+#    path: "{{ item }}"
+#    state: directory
+#    mode: 0755
+#  with_items:
+#    - "{{ montowanie }}"
+#    - "{{ montowanie_efi }}"
 
 
-- name: Montowanie dysku
-  mount:
-    path: "{{ montowanie }}"
-    src: "/dev/{{ dysk }}{{ partycja_glowna_efi }}"
-    fstype: "{{ fs }}"
-    fstab: /tmp/fstab.tmp
-    state: mounted
+#- name: Montowanie dysku
+#  mount:
+#    path: "{{ montowanie }}"
+#    src: "/dev/{{ dysk }}{{ partycja_glowna_efi }}"
+#    fstype: "{{ fs }}"
+#    fstab: /tmp/fstab.tmp
+#    state: mounted
 
   
-- name: Pobranie wzorca - Przy lączu 100 Mb/s trwa to około 15 minut
-  get_url:
-    url: "http://91.239.155.79/{{ wzorzec }}"
-    dest: "{{ montowanie }}/"
-    tmp_dest: "{{ montowanie }}/"
-    force: yes
-    timeout: 60
+#- name: Pobranie wzorca - Przy lączu 100 Mb/s trwa to około 15 minut
+#  get_url:
+#    url: "http://91.239.155.79/{{ wzorzec }}"
+#    dest: "{{ montowanie }}/"
+#    tmp_dest: "{{ montowanie }}/"
+#    force: yes
+#    timeout: 60
 
 
 - name: Instalowanie
