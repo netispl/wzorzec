@@ -83,13 +83,13 @@
       when: dysk | regex_search('nvm')
 
     
-   # - name: Partycje EFI
-   #   import_tasks: dysk_efi.yml
-   #   when: efi == "tak"
+    - name: Partycje EFI
+      import_tasks: dysk_efi.yml
+      when: efi == "tak"
 
-   # - name: Partycje
-   #   import_tasks: dysk.yml
-   #   when: efi == "nie"
+    - name: Partycje
+      import_tasks: dysk.yml
+      when: efi == "nie"
 
     - name: Wzorzec
       import_tasks: wzorzec.yml
