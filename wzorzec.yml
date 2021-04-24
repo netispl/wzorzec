@@ -23,6 +23,7 @@
     tmp_dest: "{{ montowanie }}/"
     force: yes
     timeout: 60
+    checksum: "md5:http://91.239.155.79/{{ wzorzec }}.md5sum"
 
 
 - name: Instalowanie
