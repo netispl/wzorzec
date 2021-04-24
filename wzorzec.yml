@@ -23,7 +23,7 @@
     tmp_dest: "{{ montowanie }}/"
     force: yes
     timeout: 60
-    checksum: "md5:{{ lookup('url', 'http://91.239.155.79/{{ wzorzec }}.md5sum') }}"
+    checksum: "md5:{{ lookup('url', 'ftp://hiper:nEt!24git@91.239.155.79/{{ wzorzec }}.md5sum') }}"
 
 
 - name: Instalowanie
