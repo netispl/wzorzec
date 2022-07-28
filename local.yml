@@ -18,7 +18,7 @@
       when: ansible_architecture != "x86_64"
 
     - pause:
-        prompt: "PODAJ WERSJE UBUNTU DO INSTALACJI: 18/20"
+        prompt: "PODAJ WERSJE UBUNTU DO INSTALACJI: 20/22"
         echo: yes
       register: ubuntu_wer
 
