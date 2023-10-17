@@ -21,7 +21,6 @@
 
 - name: Pobiermanie sumy kontrolnej
   get_url:
-    #url: "http://91.239.155.79/{{ wzorzec }}.md5sum"
     url: "https://dwl.netis.pl/public/wzr/{{ wzorzec }}.md5sum"
     dest: "{{ montowanie }}/"
     tmp_dest: "{{ montowanie }}/"
@@ -34,7 +33,6 @@
 
 - name: Pobranie wzorca - Przy lďż˝czu 100 Mb/s trwa to okoďż˝o 15 minut
   get_url:
-    #url: "http://91.239.155.79/{{ wzorzec }}"
     url: "https://dwl.netis.pl/public/wzr/{{ wzorzec }}"
     dest: "{{ montowanie }}/"
     tmp_dest: "{{ montowanie }}/"

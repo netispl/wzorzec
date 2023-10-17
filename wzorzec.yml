@@ -18,7 +18,6 @@
 
 - name: Pobiermanie sumy kontrolnej
   get_url:
-    #url: "http://91.239.155.79/{{ wzorzec }}.md5sum"
     url: "http://dwl.netis.pl/public/wzr/{{ wzorzec }}.md5sum"
     dest: "{{ montowanie }}/"
     tmp_dest: "{{ montowanie }}/"
