@@ -53,15 +53,15 @@
       when: dyski | length == 1
 
       
-#    - name: Sprawdzanie wybranego dysku
-#      set_fact:
-#        OK: 1
-#      when: dysk == item  
-#      loop: "{{ dyski }}"
+    - name: Sprawdzanie wybranego dysku
+      set_fact:
+        OK: 1
+      when: dysk == item  
+      loop: "{{ dyski }}"
 
-#    - fail: 
-#        msg: "PODANY DYSK JEST NIEPRAWIDLOWY"
-#      when: OK | default('0') != 1
+    - fail: 
+        msg: "PODANY DYSK JEST NIEPRAWIDLOWY"
+      when: OK | default('0') != 1
    
     - pause:
         prompt: "CZY INSTALOWAĆ UEFI ? t/n"
