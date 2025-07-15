@@ -53,15 +53,15 @@
       when: dyski | length == 1
 
       
-  #  - name: Sprawdzanie wybranego dysku
-  #    set_fact:
-  #      OK: 1
-  #    when: dysk == item  
-  #    loop: "{{ dyski }}"
+    - name: Sprawdzanie wybranego dysku
+      set_fact:
+        OK: 1
+      when: dysk == item  
+      loop: "{{ dyski }}"
 
-  #  - fail: 
-  #      msg: "PODANY DYSK JEST NIEPRAWIDLOWY"
-  #    when: OK | default('0') != 1
+    - fail: 
+        msg: "PODANY DYSK JEST NIEPRAWIDLOWY"
+      when: OK | default('0') != 1
    
     - pause:
         prompt: "CZY INSTALOWAĆ UEFI ? t/n"
@@ -83,17 +83,17 @@
       when: dysk | regex_search('nvm')
 
     
-#    - name: Partycje EFI
-#      import_tasks: dysk_efi.yml
-#      when: efi == "tak"
-#
-#    - name: Partycje
-#      import_tasks: dysk.yml
-#      when: efi == "nie"
-#
-#    - name: Wzorzec
-#      import_tasks: wzorzec.yml
-#      when: efi == "nie"
+    - name: Partycje EFI
+      import_tasks: dysk_efi.yml
+      when: efi == "tak"
+
+    - name: Partycje
+      import_tasks: dysk.yml
+      when: efi == "nie"
+
+    - name: Wzorzec
+      import_tasks: wzorzec.yml
+      when: efi == "nie"
 
 
     - name: Wzorzec EFI
